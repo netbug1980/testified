@@ -8,5 +8,25 @@
     "name": "netbug_nb.test.conditional-on-property-with-bean",
     "type": "java.lang.String",
     "description": "测试@ConditionalOnProperty是否对普通Bean有效果'"
+  },
+  {
+    "name": "netbug_nb.test.scheduling.enable",
+    "type": "java.lang.String",
+    "description": "是否开启计划任务'"
+  },
+  {
+    "name": "netbug_nb.test.scheduling.initial-delay",
+    "type": "java.lang.String",
+    "description": "计划任务最初延时（毫秒）'"
+  },
+  {
+    "name": "netbug_nb.test.scheduling.fixed-delay",
+    "type": "java.lang.String",
+    "description": "计划任务固定延时（毫秒）'"
+  },
+  {
+    "name": "netbug_nb.test.aspect.enable",
+    "type": "java.lang.String",
+    "description": "是否开启计划任务切面'"
   }
 ]}

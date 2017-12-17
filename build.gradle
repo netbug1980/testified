@@ -33,6 +33,9 @@ dependencies {
 	////security
 	compile("org.springframework.boot:spring-boot-starter-security")
 	
+	////aspectj
+	compile 'org.aspectj:aspectjweaver:1.8.9'
+	
 	////swagger
 	compile("io.springfox:springfox-swagger2:2.7.0")
 	compile("io.springfox:springfox-swagger-ui:2.7.0")

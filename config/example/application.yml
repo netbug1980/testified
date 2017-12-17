@@ -43,3 +43,9 @@ netbug_nb:
   test:
     enable: false
     conditionalOnPropertyWithBean: false
+    scheduling:
+      enable: false
+      initialDelay: 5000
+      fixedDelay: 10000
+    aspect:
+      enable: false
