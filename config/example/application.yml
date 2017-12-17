@@ -11,7 +11,7 @@ server:
       #max-age: 180 #超时后浏览器会清空cookie，间接导致服务器端创建新的session
 logging:
   level:
-    com.testfield.wheat: DEBUG
+    com.netbug_nb: DEBUG
     org.springframework.security: INFO
 security:
   basic:
@@ -39,3 +39,7 @@ spring:
   redis: 
     host: 127.0.0.1
     port: 6379
+netbug_nb:
+  test:
+    enable: false
+    conditionalOnPropertyWithBean: false

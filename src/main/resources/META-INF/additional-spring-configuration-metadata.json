@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "netbug_nb.test.enable",
+    "type": "java.lang.String",
+    "description": "开启TestAutoConfiguration配置'"
+  },
+  {
+    "name": "netbug_nb.test.conditional-on-property-with-bean",
+    "type": "java.lang.String",
+    "description": "测试@ConditionalOnProperty是否对普通Bean有效果'"
+  }
+]}

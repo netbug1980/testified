@@ -25,6 +25,7 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.netbug_nb.test.TestAutoConfiguration;
 import com.netbug_nb.uc.UCAutoConfiguration;
 
 //@EnableAutoConfiguration(exclude = {
@@ -33,7 +34,7 @@ import com.netbug_nb.uc.UCAutoConfiguration;
 @SpringBootApplication()
 @EnableCaching
 @ServletComponentScan // 启动注解式@WebFilter、@WebListener开关
-@ImportAutoConfiguration({ UCAutoConfiguration.class })
+@ImportAutoConfiguration({ UCAutoConfiguration.class,TestAutoConfiguration.class })
 public class Application extends WebMvcConfigurerAdapter {
 	public static void main(String[] args) {
 		SpringApplication application = new SpringApplication(Application.class);
