@@ -3,6 +3,7 @@ package com.netbug_nb.uc.controller;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 
 import org.junit.FixMethodOrder;
@@ -15,11 +16,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.netbug_nb.application.ApplicationTest;
 import com.netbug_nb.uc.domain.UserAccount;
 import com.netbug_nb.uc.security.JsonAuthenticationHandler.HandlerResponseBody;
 import com.netbug_nb.uc.security.JsonUsernamePasswordAuthenticationFilter.BasicRequest;
+import com.netbug_nb.util.JacksonUtil;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserAccountControllerTest extends ApplicationTest {
@@ -43,13 +44,13 @@ public class UserAccountControllerTest extends ApplicationTest {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Test
-	public void t02_login() throws JsonProcessingException {
+	public void t02_login() throws IOException {
 		BasicRequest request = new BasicRequest();
 		request.setUsername(TEST_USERNAME);
 		request.setPassword(TEST_PASSWORD);
 		ResponseEntity<HandlerResponseBody> response = template.postForEntity("/login", request,
 				HandlerResponseBody.class);
-		logger.info(objectMapper.writeValueAsString(response.getBody()));
+		logger.info(JacksonUtil.writeValueAsString(response.getBody()));
 		LinkedHashMap<String, Object> data = (LinkedHashMap<String, Object>) response.getBody().getData();
 		LinkedHashMap<String, Object> details = (LinkedHashMap<String, Object>) data.get("details");
 		TEST_SESSION = (String) details.get("sessionId");
@@ -70,11 +71,11 @@ public class UserAccountControllerTest extends ApplicationTest {
 	}
 
 	@Test
-	public void t04_logout() throws JsonProcessingException {
+	public void t04_logout() throws IOException {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add(HttpHeaders.COOKIE, "SESSION=" + TEST_SESSION);
 		HttpEntity<Object> requestEntity = new HttpEntity<Object>(headers);
 		ResponseEntity<Object> response = template.exchange("/logout", HttpMethod.GET, requestEntity, Object.class);
-		logger.info("退出成功:{}", objectMapper.writeValueAsString(response.getBody()));
+		logger.info("退出成功:{}", JacksonUtil.writeValueAsString(response.getBody()));
 	}
 }

@@ -21,11 +21,10 @@ import org.springframework.security.web.session.SessionInformationExpiredEvent;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.netbug_nb.util.JacksonUtil;
 
 public class JsonAuthenticationHandler implements AuthenticationFailureHandler, AuthenticationSuccessHandler,
 		LogoutSuccessHandler, AuthenticationEntryPoint, SessionInformationExpiredStrategy {
-	private final static ObjectMapper mapper = new ObjectMapper();
 
 	/**
 	 * 登陆失败
@@ -85,7 +84,7 @@ public class JsonAuthenticationHandler implements AuthenticationFailureHandler, 
 			throws IOException, JsonProcessingException {
 		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
 		response.setStatus(status);
-		response.getWriter().print(mapper.writeValueAsString(body));
+		response.getWriter().print(JacksonUtil.writeValueAsString(body));
 		response.getWriter().flush();
 	}
 

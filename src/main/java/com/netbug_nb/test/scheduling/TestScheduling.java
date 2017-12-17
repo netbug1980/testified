@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.netbug_nb.application.SpringBeanUtil;
 import com.netbug_nb.test.TestInterface;
+import com.netbug_nb.util.SpringBeanUtil;
 
 @EnableScheduling
 @Component

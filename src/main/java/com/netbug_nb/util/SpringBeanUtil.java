@@ -1,4 +1,4 @@
-package com.netbug_nb.application;
+package com.netbug_nb.util;
 
 import java.util.Map;
 

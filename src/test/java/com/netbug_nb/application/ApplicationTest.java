@@ -9,11 +9,7 @@ import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.netbug_nb.application.Application;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = WebEnvironment.DEFINED_PORT, properties = {
@@ -25,8 +21,6 @@ public class ApplicationTest {
 
 	@Autowired
 	protected TestRestTemplate template;
-
-	protected final static ObjectMapper objectMapper = Jackson2ObjectMapperBuilder.json().build();
 
 	@LocalServerPort
 	protected int port;
