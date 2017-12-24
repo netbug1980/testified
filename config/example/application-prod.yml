@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 800
+  session:
+    timeout: 600
+    ##TODO 如何控制session的自动清理周期
+    #cookie: #redis session不受此配置控制
+      #name: sid 
+      #max-age: 180 #超时后浏览器会清空cookie，间接导致服务器端创建新的session
+logging:
+  level:
+    com.netbug_nb: DEBUG
+    org.springframework.security: INFO
+security:
+  basic:
+    enabled: false #禁用SpringBoot默认security配置
+  ignored:
+  - /
+  - /pub/**
+  - /3rd/**
+  - /webjars/**
+  - /**/swagger-resources/**
+  - /**/api-docs/**
+  - /favicon.ico
+  - /**/*.html
+  - /**/*.jpg
+  - /**/*.gif
+  - /**/*.png
+  - /**/*.css
+  - /**/*.js
+spring:
+  data:
+    mongodb:
+      database: netbug_nb
+  session:
+    store-type: REDIS
+  redis: 
+    host: 127.0.0.1
+    port: 6379
+netbug_nb:
+  test:
+    enable: false
+    conditionalOnPropertyWithBean: false
+    scheduling:
+      enable: false
+      initialDelay: 5000
+      fixedDelay: 10000
+    aspect:
+      enable: false

@@ -19,6 +19,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.session.config.annotation.web.http.SpringHttpSessionConfiguration;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
@@ -34,6 +35,7 @@ import com.netbug_nb.util.UtilAutoConfiguration;
 //})
 @SpringBootApplication()
 @EnableCaching
+@EnableAsync
 @ServletComponentScan // 启动注解式@WebFilter、@WebListener开关
 @ImportAutoConfiguration({ //
 		UCAutoConfiguration.class, //
