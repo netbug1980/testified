@@ -16,7 +16,7 @@ public class UserAccountServiceTest extends ApplicationTest {
 
 	@Test
 	public void reporTodayTest() {
-		userService.findUserAccountFromCache(USER_NAME);
+		userService.findUserAccountFromCache(USER_ID);
 		logger.debug("success");
 	}
 }

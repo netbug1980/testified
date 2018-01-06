@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 		"server.port:8080" })
 public class ApplicationTest {
 	private final static Logger logger = LoggerFactory.getLogger(ApplicationTest.class);
+	public final static String USER_ID = "800f60dc-996c-4fe9-bc2c-68507397cac7";
 	public final static String USER_NAME = "netbug_nb";
 	public final static String PASSWORD = "123456";
 

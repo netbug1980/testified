@@ -25,7 +25,7 @@ import com.netbug_nb.uc.repository.UserAccountRepository;
 
 @Service
 public class UserAccountService {
-	protected final Logger logger = LoggerFactory.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(UserAccountService.class);
 	@Autowired
 	private UserAccountRepository userAccountRepository;
 	@Autowired
@@ -97,6 +97,13 @@ public class UserAccountService {
 		} catch (InterruptedException e) {
 
 		}
+
+		CriteriaDefinition criteriaDefinition = Criteria.where("id").is(id);
+		Query query = Query.query(criteriaDefinition);
+		long count = userAccountRepository.count(query);
+
+		logger.debug(Long.toString(count));
+
 		return userAccountRepository.findOne(id);
 	}
 }
