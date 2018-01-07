@@ -48,6 +48,11 @@ public class UserAccountControllerTest extends ApplicationTest {
 		BasicRequest request = new BasicRequest();
 		request.setUsername(TEST_USERNAME);
 		request.setPassword(TEST_PASSWORD);
+//		ParameterizedTypeReference<HandlerResponseBody<UsernamePasswordAuthenticationToken>> responseType = new ParameterizedTypeReference<HandlerResponseBody<UsernamePasswordAuthenticationToken>>() {
+//		}; //由于Authentication没无参构造方法导致不能被反序列化
+//		HttpEntity requestEntity = new HttpEntity<BasicRequest>(request);
+//		ResponseEntity<HandlerResponseBody<UsernamePasswordAuthenticationToken>> response = template.exchange("/login",
+//				HttpMethod.POST, requestEntity, responseType);
 		ResponseEntity<HandlerResponseBody> response = template.postForEntity("/login", request,
 				HandlerResponseBody.class);
 		logger.info(JacksonUtil.writeValueAsString(response.getBody()));
