@@ -3,3 +3,19 @@ spring:
   profiles:
     active:
     - dev
+netbug_nb:
+  test:
+    MyProperties:
+      str: str
+      arr: 1,2,3
+      list: 
+        - list01
+        - list02
+      map:
+        key1: value1
+        key2: value2
+      mapList:
+        - name: abc
+          value: abcvalue
+        - name: bcd
+          value: bcdvalue
